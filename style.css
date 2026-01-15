@@ -1,0 +1,248 @@
+:root {
+  color-scheme: light;
+  --bg: #0f172a;
+  --panel: #111827;
+  --card: #162033;
+  --accent: #60a5fa;
+  --accent-strong: #3b82f6;
+  --text: #e5e7eb;
+  --muted: #94a3b8;
+  --border: #1f2937;
+  --success: #34d399;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background: radial-gradient(circle at 20% 20%, rgba(96,165,250,0.08), transparent 35%),
+              radial-gradient(circle at 80% 0%, rgba(56,189,248,0.08), transparent 40%),
+              var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.page-header {
+  padding: 40px 24px 8px;
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.title-block h1 {
+  margin: 4px 0 8px;
+  font-size: clamp(28px, 5vw, 40px);
+  letter-spacing: -0.03em;
+}
+
+.eyebrow {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(96,165,250,0.18);
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+.lede {
+  margin: 0;
+  color: var(--muted);
+}
+
+.page-content {
+  max-width: 1024px;
+  margin: 40px auto;
+  padding: 0 24px 48px;
+  display: grid;
+  gap: 24px;
+}
+
+.controls {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 16px;
+  display: grid;
+  gap: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.field input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  font-size: 15px;
+}
+
+.field input:focus {
+  outline: 2px solid rgba(96,165,250,0.35);
+  border-color: var(--accent);
+}
+
+.filter-label {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 6px;
+}
+
+.filter-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--card);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.chip[data-active="true"] {
+  border-color: var(--accent);
+  background: rgba(96,165,250,0.16);
+  color: #f8fafc;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-head h2 {
+  margin: 0;
+  font-size: 22px;
+}
+
+.result-count {
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.message-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 14px;
+  display: grid;
+  gap: 10px;
+  position: relative;
+  min-height: 140px;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(96,165,250,0.18);
+  color: var(--accent);
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.label {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.text {
+  margin: 0;
+  line-height: 1.5;
+  color: #e2e8f0;
+  font-size: 15px;
+}
+
+.card-footer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn.copy {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.empty {
+  text-align: center;
+  color: var(--muted);
+  padding: 16px 0;
+}
+
+.toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--panel);
+  color: #ecfeff;
+  padding: 12px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  opacity: 0;
+  transition: opacity 0.2s ease, translate 0.2s ease;
+}
+
+.toast[data-show="true"] {
+  opacity: 1;
+}
+
+@media (max-width: 640px) {
+  .card {
+    min-height: unset;
+  }
+}
